@@ -26,9 +26,9 @@
         <td><%= movie.rating %></td>
         <td><%= movie.release_date %></td>
         <td>
-          <%= link_to "Show", movie_path(movie) %> |
-          <%= link_to "Edit", edit_movie_path(movie) %> |
-          <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Show", movie_path(movie, sort: session[:sort], direction: session[:direction]) %> |
+          <%= link_to "Edit", edit_movie_path(movie, sort: session[:sort], direction: session[:direction]) %> |
+          <%= link_to "Delete", movie_path(movie, sort: session[:sort], direction: session[:direction]), method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
       </tr>
     <% end %>
@@ -40,5 +40,6 @@
   </tfoot>
 </table>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_movie_path(sort: session[:sort], direction: session[:direction]) %>
+
 
